@@ -1,11 +1,7 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
+
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
-import java.util.TreeMap;
 
 public class homework {
     public static void main(String[] args) throws IOException {
@@ -21,6 +17,7 @@ public class homework {
                 String duedate = in.nextLine();
                 System.out.println("Assignment Name");
                 String assname = in.nextLine();
+                assignments.put(duedate,assname);
                 System.out.println("Would you like to add another one?");
                 ans = in.nextLine();
                 if(ans.equalsIgnoreCase("n")){
@@ -35,21 +32,30 @@ public class homework {
 
             }
             else if(response.equals("4")){
-                int num=1;
-                for (HashMap.Entry<String,String> s : assignments.entrySet()){
-                    System.out.print(num+". ");
-                    System.out.println(s.getValue()+" | due "+s.getKey());
-                }
-            } else {
+                print(assignments);
+            }
                 System.out.println("Would you like to do anything else?");
                 ans = in.nextLine();
                 if (ans.equalsIgnoreCase("n")) {
                     ans = "";
                     break;
                 }
-            }
-        }
 
+        }
+        print(assignments);
+
+    }
+    //prints a hashmap
+    public static void print(HashMap<String,String> assignments){
+        int num=1;
+        for (HashMap.Entry<String,String> s : assignments.entrySet()){
+            System.out.print(num+". ");
+            System.out.println(s.getValue()+" | due "+s.getKey());
+            num++;
+        }
+    }
+    public static HashMap<String,String> add(HashMap<String,String> assignments){
+        return null;
     }
 
 }
