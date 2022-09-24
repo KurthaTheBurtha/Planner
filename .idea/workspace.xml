@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79f927f5-dd10-4a4b-84b1-a3d706dc8879" name="Changes" comment="first version">
+      <change afterPath="$PROJECT_DIR$/src/Assignment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/work" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/homework.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homework.java" afterDir="false" />
     </list>
@@ -96,5 +98,16 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first version" />
     <option name="LAST_COMMIT_MESSAGE" value="first version" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/homework.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
