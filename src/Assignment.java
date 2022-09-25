@@ -29,7 +29,6 @@ public class Assignment
     }
     //returns a formatted version of the String
     public String format(){
-        return getSubject() + " | " + getName() + " - " + getDueday() + " " + getDuedate();
-
+        return getSubject() + " | " + getName() + " - " + getDueday() + "." + getDuedate();
     }
 }
