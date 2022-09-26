@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="79f927f5-dd10-4a4b-84b1-a3d706dc8879" name="Changes" comment="Fully working">
-      <change afterPath="$PROJECT_DIR$/src/homework1.java" afterDir="false" />
+    <list default="true" id="79f927f5-dd10-4a4b-84b1-a3d706dc8879" name="Changes" comment="first version">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Assignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assignment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/work" beforeDir="false" afterPath="$PROJECT_DIR$/work" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,14 +64,7 @@
       <option name="project" value="LOCAL" />
       <updated>1663697562801</updated>
     </task>
-    <task id="LOCAL-00003" summary="With Class Variable">
-      <created>1664063616099</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1664063616099</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -84,19 +75,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="master" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -104,24 +83,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first version" />
-    <MESSAGE value="With Class Variable" />
-    <MESSAGE value="Fully working" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fully working" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/homework.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/homework1.java</url>
-          <line>112</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <option name="LAST_COMMIT_MESSAGE" value="first version" />
   </component>
 </project>
