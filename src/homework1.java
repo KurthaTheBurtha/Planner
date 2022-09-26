@@ -39,8 +39,8 @@ public class homework1
             String line = file.nextLine();
             String subject = line.substring(0,line.indexOf("|")-1);
             String name = line.substring(line.indexOf("|")+2,line.indexOf("-")-1);
-            String dueday = line.substring(line.indexOf("-")+2,line.indexOf("."));
-            String duedate = line.substring(line.indexOf(".")+1);
+            String dueday = line.substring(line.indexOf("-")+2,line.indexOf("_"));
+            String duedate = line.substring(line.indexOf("_")+1);
             Assignment a = new Assignment(name,subject,duedate,dueday);
             assignments.add(a);
         }
