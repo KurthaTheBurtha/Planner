@@ -1,0 +1,203 @@
+Index: src/homework.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/homework.java b/src/homework.java
+deleted file mode 100644
+--- a/src/homework.java	(revision 69419a11d4e1af05da6a534e7bf41b1193def00f)
++++ /dev/null	(revision 69419a11d4e1af05da6a534e7bf41b1193def00f)
+@@ -1,150 +0,0 @@
+-
+-import java.io.File;
+-import java.io.FileWriter;
+-import java.io.IOException;
+-import java.util.ArrayList;
+-import java.util.HashMap;
+-import java.util.Scanner;
+-
+-public class homework {
+-    public static void main(String[] args) throws IOException {
+-        Scanner file = new Scanner(new File("work"));
+-        String line ="";
+-        String ddate;
+-        String assn;
+-        String sub;
+-        HashMap<String, ArrayList<String>> assignments = new HashMap<String,ArrayList<String>>();
+-        while(file.hasNextLine()) {
+-            line = file.nextLine();
+-            ddate = line.substring(0,line.indexOf(" | "));
+-            assn = line.substring(line.indexOf(" | ")+3);
+-            if(!(assignments.containsKey(ddate))) {
+-                assignments.put(ddate, new ArrayList<String>());
+-            }
+-//            if(assn.contains(",")){
+-//                assignments.get(ddate).add(assn.substring(0,assn.indexOf(",")));
+-//                for(int i = 1; i<=commaCount(assn)-1;i++){
+-//
+-//                    assignments.get(ddate).add(assn.substring(assn.indexOf(",")));
+-//                }
+-//            } else {
+-//                assignments.get(ddate).add(assn);
+-//            }
+-        }
+-        Scanner in = new Scanner(System.in);
+-        System.out.print("Add assignment - 1: Remove Assignment - 2: View Assignments - 3: Clear Assignments - 4 | ");
+-        String response = in.nextLine();
+-        String ans = "";
+-        while(true) {
+-            if (response.equals("1")) {
+-                add(assignments);
+-            }
+-            else if(response.equals("2")){
+-                remove(assignments);
+-            }
+-            else if(response.equals("3")){
+-                print(assignments);
+-            }
+-            else if(response.equals("4")){
+-                assignments.clear();
+-            }
+-                System.out.println("Would you like to do anything else?");
+-                ans = in.nextLine();
+-                if (ans.equalsIgnoreCase("n")) {
+-                    ans = "";
+-                    break;
+-                } else {
+-                    System.out.print("Add assignment - 1: Remove Assignment - 2: View Assignments - 3: Clear Assignments - 4 | ");
+-                    response = in.nextLine();
+-                }
+-
+-
+-        }
+-        writeToFile(assignments);
+-        print(assignments);
+-    }
+-    //prints a hashmap
+-    public static void print(HashMap<String,ArrayList<String>> assignments){
+-        int num=1;
+-        for (HashMap.Entry<String,ArrayList<String>> s : assignments.entrySet()){
+-            System.out.print(num+". ");
+-            System.out.print(s.getKey()+" | ");
+-            for(int i = 1; i<=assignments.get(s.getKey()).size();i++){
+-                if(i==assignments.get(s.getKey()).size()) {
+-                    System.out.print(s.getValue().get(i - 1));
+-                } else{
+-                    System.out.print(s.getValue().get(i - 1)+",");
+-                }
+-            }
+-            System.out.println();
+-            num++;
+-        }
+-    }
+-    //adds an element to the HashMap
+-    public static HashMap<String,ArrayList<String>> add(HashMap<String,ArrayList<String>> assignments){
+-        Scanner in = new Scanner(System.in);
+-        String ans = "";
+-        System.out.println("Due Date");
+-        String duedate = in.nextLine();
+-        System.out.println("Assignment Name");
+-        String assname = in.nextLine();
+-        if(!(assignments.containsKey(duedate))) {
+-            assignments.put(duedate, new ArrayList<String>());
+-        }
+-        assignments.get(duedate).add(assname);
+-        System.out.println("Would you like to add another one?");
+-        ans = in.nextLine();
+-        if(ans.equalsIgnoreCase("y")){
+-            add(assignments);
+-        }
+-        return assignments;
+-    }
+-    //removes an element from a HashMap
+-    public static HashMap<String,ArrayList<String>> remove(HashMap<String,ArrayList<String>> assignments){
+-        Scanner in = new Scanner(System.in);
+-        System.out.println("Which one would you like to remove? Enter a number");
+-        print(assignments);
+-        int ans = Integer.parseInt(in.nextLine());
+-        int num=1;
+-        for (HashMap.Entry<String,ArrayList<String>> s : assignments.entrySet()){
+-            if(num==ans){
+-                System.out.println("Which one would you like to remove?");
+-                for(int i = 1; i<=assignments.get(s.getKey()).size();i++){
+-                    System.out.println(i+". "+s.getValue().get(i-1));
+-                }
+-                int ans2 = Integer.parseInt(in.nextLine());
+-                s.getValue().remove(ans2-1);
+-                break;
+-            }
+-            num++;
+-        }
+-        return assignments;
+-    }
+-    //writes elements from a HashMap to the file "assignments"
+-    public static void writeToFile(HashMap<String,ArrayList<String>> assignments) throws IOException {
+-        FileWriter fileWriter = new FileWriter("work");
+-        for (HashMap.Entry<String,ArrayList<String>> s : assignments.entrySet()) {
+-            fileWriter.write(s.getKey() + " | ");
+-            for(int i = 1; i<=assignments.get(s.getKey()).size();i++){
+-                if(i==assignments.get(s.getKey()).size()) {
+-                    fileWriter.write(s.getValue().get(i - 1));
+-                } else{
+-                    fileWriter.write(s.getValue().get(i - 1)+",");
+-                }
+-            }
+-            fileWriter.write("\n");
+-        }
+-        fileWriter.close();
+-    }
+-    public static int commaCount(String assignment){
+-        int count =0;
+-        for(int i = 0; i<assignment.length();i++){
+-            if(assignment.charAt(i)==','){
+-                count++;
+-            }
+-        }
+-        return count;
+-    }
+-
+-
+-}
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"79f927f5-dd10-4a4b-84b1-a3d706dc8879\" name=\"Changes\" comment=\"Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;work\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/work\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/work\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"PREVIOUS_COMMIT_AUTHORS\">\r\n      <list>\r\n        <option value=\"Kurt Schimmel &lt;kurthatheburtha@gmail.com&gt;\" />\r\n      </list>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2F2jC3Q9pVlzPjUdSmS62uoZeie\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;\r\n  }\r\n}</component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"79f927f5-dd10-4a4b-84b1-a3d706dc8879\" name=\"Changes\" comment=\"\" />\r\n      <created>1663696942460</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1663696942460</updated>\r\n      <workItem from=\"1663696949034\" duration=\"1470000\" />\r\n      <workItem from=\"1664246809834\" duration=\"1213000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"first version\">\r\n      <created>1663697326875</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1663697326875</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"first version\">\r\n      <created>1663697562801</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1663697562801</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"adjusted period in date to underscore\">\r\n      <created>1664209055175</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1664209055175</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;work\">\r\n      <created>1664241911805</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1664241911805</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;work\">\r\n      <created>1664245278832</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1664245278832</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"6\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"first version\" />\r\n    <MESSAGE value=\"Fully working\" />\r\n    <MESSAGE value=\"adjusted period in date to underscore\" />\r\n    <MESSAGE value=\"Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;work\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;work\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 69419a11d4e1af05da6a534e7bf41b1193def00f)
++++ b/.idea/workspace.xml	(date 1664334740473)
+@@ -3,7 +3,6 @@
+   <component name="ChangeListManager">
+     <list default="true" id="79f927f5-dd10-4a4b-84b1-a3d706dc8879" name="Changes" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;work">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/work" beforeDir="false" afterPath="$PROJECT_DIR$/work" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -55,7 +54,7 @@
+       <option name="presentableId" value="Default" />
+       <updated>1663696942460</updated>
+       <workItem from="1663696949034" duration="1470000" />
+-      <workItem from="1664246809834" duration="1213000" />
++      <workItem from="1664246809834" duration="2245000" />
+     </task>
+     <task id="LOCAL-00001" summary="first version">
+       <created>1663697326875</created>
+@@ -92,7 +91,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1664245278832</updated>
+     </task>
+-    <option name="localTasksCounter" value="6" />
++    <task id="LOCAL-00006" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;work">
++      <created>1664248360245</created>
++      <option name="number" value="00006" />
++      <option name="presentableId" value="LOCAL-00006" />
++      <option name="project" value="LOCAL" />
++      <updated>1664248360245</updated>
++    </task>
++    <option name="localTasksCounter" value="7" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
