@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class homework1
+import static java.lang.Integer.parseInt;
+
+public class homework
 {
     public static void main(String[] args) throws IOException {
         Scanner input = new Scanner(System.in);
@@ -85,7 +87,7 @@ public class homework1
             print(assignments);
             String response = input.nextLine();
             if(isNumeric(response)) {
-                int num = Integer.parseInt(response);
+                int num = parseInt(response);
                 try {
                     assignments.remove(num-1);
                 } catch (Exception e){
@@ -117,5 +119,22 @@ public class homework1
         }
         writer.close();
     }
+    //dates come in the form MM/dd/yyyy
+    public static boolean isLater(String date1, String date2){
+        int month1 = parseInt(date1.substring(0,date1.indexOf("/")));
+        int day1 = parseInt(date1.substring(date1.indexOf("/")+1,date1.indexOf("/",3)));
+        int year1= parseInt(date1.substring(date1.indexOf("/",3)+1));
+        int month2 = parseInt(date2.substring(0,date2.indexOf("/")));
+        int day2 = parseInt(date2.substring(date2.indexOf("/")+1,date1.indexOf("/",3)));
+        int year2 = parseInt(date2.substring(date2.indexOf("/",3)+1));
+        if(year2>year1){
+            return true;
+        } else if(month2==12&&month1<12){
+            return true;
+        } else if(month1>month2){
+            return true;
+        }else return day1 > day2;
+    }
+
 
 }

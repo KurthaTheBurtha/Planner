@@ -15,5 +15,30 @@ public class testing {
 //        String strday = strDate.substring(dashindex+4,dashindex+7);
 //        System.out.println(strmonth);
 //        System.out.println(strday);
+        System.out.println(isLater("09/28/2022","09/27/2022"));
+        System.out.println(isLater("09/28/2022","09/28/2022"));
+        System.out.println(isLater("09/28/2022","09/29/2022"));
+        System.out.println(isLater("09/28/2022","10/29/2022"));
+        System.out.println(isLater("1/23/2022","12/27/2021"));
     }
+    //dates come in the form MM/dd
+    public static boolean isLater(String date1, String date2){
+        int month1 = Integer.parseInt(date1.substring(0,date1.indexOf("/")));
+        int day1 = Integer.parseInt(date1.substring(date1.indexOf("/")+1,date1.indexOf("/",3)));
+        int year1= Integer.parseInt(date1.substring(date1.indexOf("/",3)+1));
+        int month2 = Integer.parseInt(date2.substring(0,date2.indexOf("/")));
+        int day2 = Integer.parseInt(date2.substring(date2.indexOf("/")+1,date1.indexOf("/",3)));
+        int year2 = Integer.parseInt(date2.substring(date2.indexOf("/",3)+1));
+        if(year2>year1){
+            return true;
+        } else if(month2==12&&month1<12){
+            return true;
+        } else if(month1>month2){
+            return true;
+        }else if(day1>day2){
+            return true;
+        }
+        return false;
+    }
+
 }
