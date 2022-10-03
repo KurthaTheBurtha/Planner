@@ -11,6 +11,7 @@ public class Assignment
         this.duedate=duedate;
         this.dueday=dueday;
     }
+
     //returns the name of the assignment
     public String getName(){
         return this.name;
@@ -31,4 +32,7 @@ public class Assignment
     public String format(){
         return getSubject() + " | " + getName() + " - " + getDueday() + "_" + getDuedate();
     }
+
+
+
 }
