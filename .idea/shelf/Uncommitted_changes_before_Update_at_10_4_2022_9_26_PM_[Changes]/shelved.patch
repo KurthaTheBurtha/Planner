@@ -1,0 +1,16 @@
+Index: work
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>TOK | TOK Paragraph Seminar Preparation - Friday_10/6\r\nMath | 5 problems book 3 problem worksheet - Wed_10/5\r\nCS | 5.3 codehs - Wed_10/5\r\nChinese | handwriting - Wed_10/5\r\nBusiness | ansoff alma - Wed_10/5\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/work b/work
+--- a/work	(revision f5f03b75461838762a0b8e9bb5d41f60eb3ddef5)
++++ b/work	(date 1664943972219)
+@@ -1,5 +1,2 @@
+ TOK | TOK Paragraph Seminar Preparation - Friday_10/6
+ Math | 5 problems book 3 problem worksheet - Wed_10/5
+-CS | 5.3 codehs - Wed_10/5
+-Chinese | handwriting - Wed_10/5
+-Business | ansoff alma - Wed_10/5
